@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<form action="/salvar" method="POST">
+    <label for="nome">Nome: </label>
+    <input type="text" name="nome" id="">
+    <label for="sobrenome">sobrenome</label>
+    <input type="text" name="sobrenome" id="sobrenome">
+    <label for="cpf">Identidade: </label>
+    <input type="text" name="identidade" id="cpf">
+    <input type="submit"  value="salvar">
+</form>
+{% endblock %}

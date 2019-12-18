@@ -1,0 +1,55 @@
+{% extends 'layout.html'%}
+
+
+{% block content %}
+<h1 class="text-center display-4 mt-3">Cadastrar</h1>
+
+<div class="container-fluid col-md-4 offset-4">
+  <form action="/salvar_funcionario" method="POST">
+
+    <div class="form-group">
+      <label for="">ID</label>
+      <input type="number" class="form-control" name="id" readonly value="{{funcionario[0] if 'id' in request.args.keys() else ''}}">
+    </div>
+
+    <div class="form-group">
+      <label for="">Nome</label>
+      <input type="text" class="form-control" name="nome" value="{{funcionario[1] if 'id' in request.args.keys() else ''}}">
+    </div>
+
+    <div class="form-group">
+      <label for="">Sobrenome</label>
+      <input type="text" class="form-control" name="sobrenome" value="{{funcionario[2] if 'id' in request.args.keys() else ''}}">
+    </div>
+
+    <div class="form-group">
+      <label for="">Identidade</label>
+      <input class="form-control" name="identidade" value="{{funcionario[5] if 'id' in request.args.keys() else ''}}">
+    </div>
+
+    <div class="form-group">
+      <label for="">Cargo</label>
+      <input class="form-control" name="cargo" value="{{funcionario[5] if 'id' in request.args.keys() else ''}}">
+    </div>
+
+    <div class="form-group">
+      <label for="">Salário</label>
+      <input class="form-control" name="salario" value="{{funcionario[5] if 'id' in request.args.keys() else ''}}">
+    </div>
+
+    {% if ('id' in request.args.keys()) %}
+    <input type="hidden" name="editar" value="1">
+    <button type="submit" class="btn btn-primary btn-block">Alterar</button>
+    {% else %}
+    <input type="hidden" name="salvar" value="2">
+    <button type="submit" class="btn btn-primary btn-block">Salvar</button>
+    {% endif %}  
+  </form>
+</div>
+
+
+
+</div>
+
+
+{% endblock %}
